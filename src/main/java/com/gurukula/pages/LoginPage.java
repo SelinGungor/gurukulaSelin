@@ -10,6 +10,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+/**
+ * @author      Selin Gungor <selingungor01@gmail.com>
+ * @version     1.0   
+ * @since       1.0 (the version of the package this class was first added to)
+ */
 public class LoginPage extends HomePage {
 
     protected WebDriver driver;
@@ -62,6 +67,9 @@ public class LoginPage extends HomePage {
     @FindBy( css = "[translate='main.logged.message']")
     private WebElement successLoggedInMessage;
     
+    @CacheLookup
+    @FindBy(css = "[ng-show='authenticationError']")
+    private WebElement failedLoggedInMessage;
     
     //Methods
     
@@ -85,7 +93,7 @@ public class LoginPage extends HomePage {
    	 * @param  automaticLogin should be true, if needed
    	 * @return      
    	 */
-   	public LoginPage loginSuccess(String username, String password, boolean automaticLogin)
+   	public LoginPage login(String username, String password, boolean automaticLogin, boolean isLoginSuccessful)
    	{
    		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxUserName)).sendKeys(username);
    		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxPassword)).sendKeys(password);
@@ -95,9 +103,24 @@ public class LoginPage extends HomePage {
    		}
    		
    		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(btnAuthenticate)).click();
-   		String successMessage = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(successLoggedInMessage)).getText();
-   		System.out.println("successMessage : " + successMessage);
-   		Assert.assertEquals("You are logged in as user \"" + username + "\".", successMessage);
+   		
+   		if(isLoginSuccessful)
+   		{ 
+   			boolean isVisible = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(successLoggedInMessage)).isDisplayed();
+   			Assert.assertTrue(isVisible);
+   			String successMessage = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(successLoggedInMessage)).getText();
+   			System.out.println("Success Message : " + successMessage);
+   	   		Assert.assertEquals("You are logged in as user \"" + username + "\".", successMessage);
+   		}
+   		else
+   		{
+   			boolean isVisible = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(failedLoggedInMessage)).isDisplayed();
+   			Assert.assertTrue(isVisible);
+   	   		String failedMessage = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(failedLoggedInMessage)).getText();
+   			System.out.println("Warn Message : " + failedMessage);
+   	   		Assert.assertEquals("Authentication failed! Please check your credentials and try again.",failedMessage);
+   		}
+   		
    		return this;
    	}
    	

@@ -59,7 +59,7 @@ public class HomePage {
      *
      **/
     @CacheLookup
-    @FindBy( linkText = "Branch")
+    @FindBy( css = "[href=\"#/branch\"]")
     private WebElement navBarBranch;
     
 	 /**
@@ -113,7 +113,8 @@ public class HomePage {
 	{
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(navBarEntities)).click();
 		isTextExist("Branch");
-		new Select(navBarEntities).selectByVisibleText("Branch");
+		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(navBarBranch)).click();
+		//new Select(navBarEntities).selectByIndex(0);//[href="#/branch"] .selectByVisibleText("Branch");
 		//new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(navBarBranch)).click();
 		return new BranchPage(driver);
 	}

@@ -5,6 +5,11 @@ import org.testng.annotations.Test;
 import com.gurukula.generic.BaseCase;
 import com.gurukula.pages.Factory;
 
+/**
+ * @author      Selin Gungor <selingungor01@gmail.com>
+ * @version     1.0   
+ * @since       1.0 (the version of the package this class was first added to)
+ */
 public class LoginTests extends BaseCase {
 	
 	@Test
@@ -23,7 +28,7 @@ public class LoginTests extends BaseCase {
 		Factory factory = new Factory(driver);
 		factory.homePage().clickGurukulaIcon()
 						  .clickLogin()
-						  .loginSuccess("admin", "admin", true);
+						  .login("admin","admin", true, true);
 	}
 	
 	@Test
@@ -33,6 +38,6 @@ public class LoginTests extends BaseCase {
 		Factory factory = new Factory(driver);
 		factory.homePage().clickGurukulaIcon()
 						  .clickLogin()
-						  .loginSuccess("admin", "admo", true);
+						  .login("admin", "admo", true, false);
 	}
 }
