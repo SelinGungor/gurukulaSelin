@@ -42,4 +42,20 @@ public class BranchTests extends BaseCase {
 						  .checkInfoOnBranchDetail("selin", "A32")
 						  .deleteBranch(1);						  				 
 	}
+	
+	@Test
+	public void TC003_searchBranch() throws InterruptedException
+	{
+		driver.get(gurukulaURL);
+		Factory factory = new Factory(driver);
+		factory.homePage().clickGurukulaIcon()
+						  .clickLogin()
+						  .login("admin", "admin", true, true)
+						  .clickBranches()
+						  .createNewBranch("selin", "A32")
+						  .viewBranchDetail()
+						  .checkInfoOnBranchDetail("selin", "A32")
+						  .searchBranch("selin");
+						  				  				 
+	}
 }

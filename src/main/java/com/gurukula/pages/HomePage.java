@@ -67,7 +67,7 @@ public class HomePage {
      *
      **/
     @CacheLookup
-    @FindBy( linkText = "Staff")
+    @FindBy( css = "[href=\"#/staff\"]")
     private WebElement navBarStaff;
     
     //Methods
@@ -88,7 +88,7 @@ public class HomePage {
      **/
 	public HomePage clickGurukulaIcon()
 	{
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(iconGurukula)).click();
+		clickElement(driver,10,iconGurukula);
 		return this;
 	}
 	
@@ -99,7 +99,7 @@ public class HomePage {
      **/
 	public LoginPage clickLogin()
 	{
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(loginOnPage)).click();
+		clickElement(driver,10,loginOnPage);
 		isTextExist("Authenticate");
 		return new LoginPage(driver);
 	}
@@ -111,12 +111,25 @@ public class HomePage {
 	     **/
 	public BranchPage clickBranches()
 	{
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(navBarEntities)).click();
+		clickElement(driver,10,navBarEntities);
 		isTextExist("Branch");
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(navBarBranch)).click();
-		//new Select(navBarEntities).selectByIndex(0);//[href="#/branch"] .selectByVisibleText("Branch");
-		//new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(navBarBranch)).click();
+		clickElement(driver,10,navBarBranch);
 		return new BranchPage(driver);
 	}
+	
+	public StaffPage clickStaff()
+	{
+		clickElement(driver,10,navBarEntities);
+		isTextExist("Staff");
+		clickElement(driver,10,navBarStaff);
+		return new StaffPage(driver);
+	}
+	
+	public void clickElement(WebDriver driver,int timeout, WebElement element)
+	{
+		new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOf(element)).click();
+	}
+	
+	
 	
 }

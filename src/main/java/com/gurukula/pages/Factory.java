@@ -25,4 +25,8 @@ public class Factory {
     public BranchDetailPage branchDetailPage(){
      	 return new BranchDetailPage(driver);	        	 
       }
+    
+    public StaffPage staffPage(){
+    	 return new StaffPage(driver);	        	 
+     }
 }

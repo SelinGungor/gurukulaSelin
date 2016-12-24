@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -46,6 +47,22 @@ public class BranchPage extends LoginPage {
 	@CacheLookup
 	@FindBy(css = "[data-target='#saveBranchModal']")
 	public WebElement btnCreateANewBranch;
+	
+	/**
+	 * search branch button
+	 * 
+	 **/
+	@CacheLookup
+	@FindBy(css = "[ng-click=\"search()\"]")
+	public WebElement btnSearchBranch;
+	
+	/**
+	 * search text box
+	 *
+	 **/
+	@CacheLookup
+	@FindBy(id = "searchQuery")
+	public WebElement txtSearchBranch;
 
 	// Add new branch form elements
 
@@ -215,7 +232,8 @@ public class BranchPage extends LoginPage {
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxName));
 
 		txtBxName.sendKeys(branchName);
-
+		txtBxName.sendKeys(Keys.RETURN);
+		
 		boolean isDisplayed = false;
 		String minLength = txtBxName.getAttribute("ng-minlength");
 		String maxLength = txtBxName.getAttribute("ng-maxlength");
@@ -291,8 +309,7 @@ public class BranchPage extends LoginPage {
 	 * click save button
 	 */
 	private void clickSaveButton() {
-		//increaseID();
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnSave)).click();
+		clickElement(driver, 10, btnSave);
 		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnCreateANewBranch));
 	}
 
@@ -325,7 +342,7 @@ public class BranchPage extends LoginPage {
 	/**
 	 * delete branch 
 	 * 
-	 * @return
+	 * @param ID id of branch to delete
 	 * @throws InterruptedException
 	 */
 	public BranchDetailPage deleteBranch(int ID) throws InterruptedException {
@@ -348,6 +365,19 @@ public class BranchPage extends LoginPage {
 		return new BranchDetailPage(driver);
 
 	}
+	
+	/**
+	 * delete branch 
+	 * 
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public void searchBranch(String searchText)
+	{
+		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtSearchBranch)).sendKeys(searchText);
+		clickElement(driver, 10, btnSearchBranch);	
+	}
+	
 
 	public void PatternValidator() {
 		pattern = Pattern.compile(patternString);

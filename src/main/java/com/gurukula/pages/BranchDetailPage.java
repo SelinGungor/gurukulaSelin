@@ -90,7 +90,7 @@ public class BranchDetailPage extends BranchPage{
      */
     public void clickBackButtonOnBranchDetail()
     {
-    	new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(backButton)).click();
+    	clickElement(driver, 10, backButton);
 
     	Assert.assertTrue(btnCreateANewBranch.isDisplayed());
     }
