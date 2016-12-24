@@ -11,6 +11,7 @@ import com.gurukula.pages.Factory;
  * @since       1.0 (the version of the package this class was first added to)
  */
 public class BranchTests extends BaseCase {
+	
 	@Test
 	public void TC001_checkNewBranch() throws InterruptedException
 	{
@@ -20,7 +21,25 @@ public class BranchTests extends BaseCase {
 						  .clickLogin()
 						  .login("admin", "admin", true, true)
 						  .clickBranches()
-						  .createNewBranch("selin", "A32");
+						  .createNewBranch("selin", "A32")
+						  .viewBranchDetail()
+						  .checkInfoOnBranchDetail("selin", "A32");
+		
 						//  .enterBranchName("sel","This field is required to be at least 5 characters.");					 
+	}
+	
+	@Test
+	public void TC002_deleteBranch() throws InterruptedException
+	{
+		driver.get(gurukulaURL);
+		Factory factory = new Factory(driver);
+		factory.homePage().clickGurukulaIcon()
+						  .clickLogin()
+						  .login("admin", "admin", true, true)
+						  .clickBranches()
+						  .createNewBranch("selin", "A32")
+						  .viewBranchDetail()
+						  .checkInfoOnBranchDetail("selin", "A32")
+						  .deleteBranch(1);						  				 
 	}
 }

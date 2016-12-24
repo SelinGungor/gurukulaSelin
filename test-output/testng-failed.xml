@@ -5,9 +5,9 @@
     <classes>
       <class name="com.gurukula.e2eTests.BranchTests">
         <methods>
+          <include name="TC001_checkNewBranch"/>
           <include name="setEnv"/>
           <include name="setUp"/>
-          <include name="TC001_checkHomePage"/>
           <include name="closeBrowser"/>
         </methods>
       </class> <!-- com.gurukula.e2eTests.BranchTests -->

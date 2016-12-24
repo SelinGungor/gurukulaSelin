@@ -17,4 +17,12 @@ public class Factory {
     public HomePage homePage(){
    	 return new HomePage(driver);	        	 
     }
+    
+    public BranchPage branchPage(){
+      	 return new BranchPage(driver);	        	 
+       }
+    
+    public BranchDetailPage branchDetailPage(){
+     	 return new BranchDetailPage(driver);	        	 
+      }
 }
