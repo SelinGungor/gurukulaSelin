@@ -11,6 +11,7 @@ import com.gurukula.pages.Factory;
  * @since       1.0 (the version of the package this class was first added to)
  */
 public class StaffTests extends BaseCase {
+	
 	@Test
 	public void TC001_checkStaff() throws InterruptedException
 	{
@@ -32,6 +33,19 @@ public class StaffTests extends BaseCase {
 						  .clickLogin()
 						  .login("admin", "admin", true, true)
 						  .clickStaff()
-						  .createNewStaff("m","selin");	//should fail						 
+						  .createNewStaff("THISISTOOLONGSTRINGWHICHSHOULDNTBEACCEPTETHISISTOOLONGSTRINGWHICHSHOULDNTBEACCEPTETHISIS","deniz");						 
+	}
+	
+	@Test
+	public void TC003_editStaff() throws InterruptedException
+	{
+		driver.get(gurukulaURL);
+		Factory factory = new Factory(driver);
+		factory.homePage().clickGurukulaIcon()
+						  .clickLogin()
+						  .login("admin", "admin", true, true)
+						  .clickStaff()
+						  .createNewStaff("deno","deniz")	
+						  .editStaff(1,"updatedName","selin");						 
 	}
 }

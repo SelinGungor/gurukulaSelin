@@ -2,6 +2,8 @@ package com.gurukula.pages;
 
 import org.openqa.selenium.WebDriver;
 
+import com.gurukula.e2eTests.UserAccountTests;
+
 /**
  * @author      Selin Gungor <selingungor01@gmail.com>
  * @version     1.0   
@@ -29,4 +31,8 @@ public class Factory {
     public StaffPage staffPage(){
     	 return new StaffPage(driver);	        	 
      }
+    
+    public UserSettingsPage userSettingsPage(){
+   	 return new UserSettingsPage(driver);	        	 
+    }
 }

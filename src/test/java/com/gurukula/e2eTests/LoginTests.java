@@ -40,4 +40,15 @@ public class LoginTests extends BaseCase {
 						  .clickLogin()
 						  .login("admin", "admo", true, false);
 	}
+	
+	@Test
+	public void TC004_logOut()
+	{
+		driver.get(gurukulaURL);
+		Factory factory = new Factory(driver);
+		factory.homePage().clickGurukulaIcon()
+						  .clickLogin()
+						  .login("admin","admin", true, true)
+						  .logOut();
+	}
 }

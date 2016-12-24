@@ -38,7 +38,7 @@ public class HomePage {
     private WebElement iconGurukula;
 
     /**
-     * Home page icon
+     * Login page icon
      *
      **/
     @CacheLookup
@@ -69,6 +69,32 @@ public class HomePage {
     @CacheLookup
     @FindBy( css = "[href=\"#/staff\"]")
     private WebElement navBarStaff;
+    
+	 /**
+     * Accounts from navigation bar
+     *
+     **/
+    @CacheLookup
+    @FindBy(linkText = "Account")
+	protected WebElement navBarAccount;
+    
+    /**
+     * Settings from navigation bar
+     *
+     **/
+    @CacheLookup
+    @FindBy(css = "[translate=\"global.menu.account.settings\"]")
+    private WebElement navBarSettings;
+
+    /**
+     * Logout from navigation bar
+     *
+     **/
+    @CacheLookup
+    @FindBy(css = " [translate=\"global.menu.account.logout\"]")
+    protected WebElement navBarLogout;
+   
+       
     
     //Methods
     
@@ -123,6 +149,17 @@ public class HomePage {
 		isTextExist("Staff");
 		clickElement(driver,10,navBarStaff);
 		return new StaffPage(driver);
+	}
+	
+	
+	public UserSettingsPage clickSettings()
+	{
+		clickElement(driver,10,navBarAccount);
+		isTextExist("Staff");
+		clickElement(driver,10,navBarSettings);
+		String pageSource = driver.getPageSource();
+		Assert.assertTrue(pageSource.contains("User settings"));
+		return new UserSettingsPage(driver);
 	}
 	
 	public void clickElement(WebDriver driver,int timeout, WebElement element)

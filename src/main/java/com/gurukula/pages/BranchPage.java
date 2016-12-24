@@ -28,6 +28,7 @@ public class BranchPage extends LoginPage {
 
 	protected WebDriver driver;
 	private static int id = 0;
+	private boolean isHealty = false;
 
 	public BranchPage(WebDriver driver) {
 		super(driver);
@@ -97,6 +98,15 @@ public class BranchPage extends LoginPage {
 	@CacheLookup
 	@FindBy(css = "[class=\"modal-footer\"] [class=\"btn btn-primary\"]")
 	private WebElement btnSave;
+	
+	 /**
+	 * cancel button
+	 *
+	 **/
+	 @CacheLookup
+	 @FindBy(css = "#saveBranchModal [class=\"btn btn-default\"]")
+	 private WebElement btnCancel;
+	
 
 	// Help blocks
 	/**
@@ -211,7 +221,13 @@ public class BranchPage extends LoginPage {
 
 		enterBranchName(name);
 		enterBranchCode(code);
-		clickSaveButton();
+		if(isHealty){
+			clickSaveButton();
+		}
+		else{
+			clickCancelButton();
+		}
+		
 
 		return this;
 	}
@@ -230,9 +246,9 @@ public class BranchPage extends LoginPage {
 		String errorMessagePattrn = "This field should follow pattern ^[a-zA-Z\\s]*$.";
 
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxName));
-
+		txtBxName.clear();
 		txtBxName.sendKeys(branchName);
-		txtBxName.sendKeys(Keys.RETURN);
+		//txtBxName.sendKeys(Keys.RETURN);
 		
 		boolean isDisplayed = false;
 		String minLength = txtBxName.getAttribute("ng-minlength");
@@ -244,18 +260,21 @@ public class BranchPage extends LoginPage {
 			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrNameMinChar));
 
 			System.out.println(txtErrNameMinChar.getText());
-			// Assert.assertTrue(isDisplayed);
+			isHealty = false;
 			Assert.assertEquals(txtErrNameMinChar.getText(), errorMessageMin);
 		}
-		if (branchName.length() > Integer.parseInt(String.valueOf(maxLength))) {
+		else if (branchName.length() > Integer.parseInt(String.valueOf(maxLength))) {
 			System.out.println("Checking max value..");
 			isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrNameMaxChar))
 					.isDisplayed();
 			System.out.println(txtErrNameMaxChar);
 			Assert.assertTrue(isDisplayed);
+			isHealty = false;
 			Assert.assertEquals(txtErrNameMaxChar.getText(), errorMessageMax);
 		}
-
+		else{
+			isHealty=true;
+		}
 		// Assert.assertTrue(validatePattern(patternString));
 
 		return this;
@@ -276,6 +295,7 @@ public class BranchPage extends LoginPage {
 
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxCode));
 		Thread.sleep(100);
+		txtBxCode.clear();
 		txtBxCode.sendKeys(branchCode);
 
 		boolean isDisplayed = false;
@@ -289,15 +309,20 @@ public class BranchPage extends LoginPage {
 
 			System.out.println(txtErrCodeMinChar.getText());
 			// Assert.assertTrue(isDisplayed);
+			isHealty=false;
 			Assert.assertEquals(txtErrCodeMinChar.getText(), errorMessageMin);
 		}
-		if (branchCode.length() > Integer.parseInt(String.valueOf(maxLength))) {
+		else if (branchCode.length() > Integer.parseInt(String.valueOf(maxLength))) {
 			System.out.println("Checking max value..");
 			isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrCodeMaxChar))
 					.isDisplayed();
 			System.out.println(txtErrCodeMaxChar);
 			Assert.assertTrue(isDisplayed);
+			isHealty=false;
 			Assert.assertEquals(txtErrCodeMaxChar.getText(), errorMessageMax);
+		}
+		else{
+			isHealty=true;
 		}
 
 		// TO DO: Assert.assertTrue(validatePattern(patternString));
@@ -308,9 +333,20 @@ public class BranchPage extends LoginPage {
 	/**
 	 * click save button
 	 */
-	private void clickSaveButton() {
+	private BranchPage clickSaveButton() {
 		clickElement(driver, 10, btnSave);
 		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnCreateANewBranch));
+		return this;
+	}
+	
+	/**
+	 * click Cancel Button Close Dialog
+	 */
+	private BranchPage clickCancelButton()
+	{
+		clickElement(driver, 10, btnCancel);
+		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnCreateANewBranch));
+		return this;
 	}
 
 	/**
@@ -367,15 +403,44 @@ public class BranchPage extends LoginPage {
 	}
 	
 	/**
+	 * edit branch 
+	 * 
+	 * @param ID id of branch to edit
+	 * @throws InterruptedException
+	 */
+	public BranchDetailPage editBranch(int ID, String updatedName, String updatedCode) throws InterruptedException {
+		System.out.println("Updating branch..");
+		Thread.sleep(100);
+		    	
+		List<WebElement> allBranches = driver.findElements(By.cssSelector(".ng-scope [ng-repeat=\"branch in branches\"]") );
+
+		System.out.println("Branch will be updated : " +allBranches.get(ID));
+
+    	JavascriptExecutor executor = (JavascriptExecutor)driver;
+    	executor.executeScript("$('[class=\"table table-striped\"] tbody tr:nth-child("+ID+") [ng-click=\"showUpdate(branch.id)\"]').click()");
+    	
+    	enterBranchName(updatedName);
+    	enterBranchCode(updatedCode);
+    	if(isHealty){
+			 clickSaveButton();
+		 }
+		 else{
+			 clickCancelButton();
+		 }
+		return new BranchDetailPage(driver);
+	}
+	
+	/**
 	 * delete branch 
 	 * 
 	 * @return
 	 * @throws InterruptedException
 	 */
-	public void searchBranch(String searchText)
+	public BranchPage searchBranch(String searchText)
 	{
 		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtSearchBranch)).sendKeys(searchText);
 		clickElement(driver, 10, btnSearchBranch);	
+		return this;
 	}
 	
 

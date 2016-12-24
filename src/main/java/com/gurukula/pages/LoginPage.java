@@ -134,4 +134,19 @@ public class LoginPage extends HomePage {
    		return this;
    	}
    	
+   	/**
+   	 * Log out function
+   	 * @return
+   	 */
+   	public HomePage logOut()
+   	{
+   		System.out.println("Logging out..");
+   		clickElement(driver,10,navBarAccount);
+		isTextExist("Log out");
+   		clickElement(driver, 10, navBarLogout);	
+   		isTextExist("You don't have an account yet?");
+		return new HomePage(driver);   		
+   	}
+
+
 }
