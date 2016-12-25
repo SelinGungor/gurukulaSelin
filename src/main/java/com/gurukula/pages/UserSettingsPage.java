@@ -1,15 +1,14 @@
 package com.gurukula.pages;
 
-import org.apache.http.util.Asserts;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import com.gurukula.generic.MemoryStorage;
 
 /**
  * @author      Selin Gungor <selingungor01@gmail.com>
@@ -118,7 +117,7 @@ public class UserSettingsPage extends LoginPage {
      *
      **/
     @CacheLookup
-    @FindBy(css = "[ng-show=\"form.lastName.$error.required\"]")
+    @FindBy(css = "[translate=\"settings.messages.validate.lastname.required\"]")
     private WebElement errMessageLastNameRequired;
     
 	 /**
@@ -126,7 +125,7 @@ public class UserSettingsPage extends LoginPage {
      *
      **/
     @CacheLookup
-    @FindBy(css = "[ng-show=\"form.email.$error.minlength\"]")
+    @FindBy(css = "[translate=\"global.messages.validate.email.minlength\"]")
     private WebElement errMessageEmailMin;
     
 	 /**
@@ -134,7 +133,7 @@ public class UserSettingsPage extends LoginPage {
      *
      **/
     @CacheLookup
-    @FindBy(css = "[ng-show=\"form.email.$error.maxlength\"]")
+    @FindBy(css = "[translate=\"global.messages.validate.email.maxlength\"]")
     private WebElement errMessageEmailMax;
     
 	 /**
@@ -142,7 +141,7 @@ public class UserSettingsPage extends LoginPage {
      *
      **/
     @CacheLookup
-    @FindBy(css = "[ng-show=\"form.email.$error.required\"]")
+    @FindBy(css = "[translate=\"global.messages.validate.email.required\"]")
     private WebElement errMessageEmailRequired;
     
 	 /**
@@ -169,12 +168,16 @@ public class UserSettingsPage extends LoginPage {
     {
     	Thread.sleep(250);
     	updateFirstName(firstName);
+    		isFirstNameHealty = MemoryStorage.isHealty;
     	Thread.sleep(250);
     	updateLastName(lastName);
+    		isLastNameHealty = MemoryStorage.isHealty;
     	Thread.sleep(250);
     	updateEmail(email);
+    		isEmailHealty = MemoryStorage.isHealty;
     	Thread.sleep(250);
     	updateLanguage(language);
+    		
     	Thread.sleep(100);
     	System.out.println("isEmailHealty" + isEmailHealty);
     	System.out.println("isFirstNameHealty" + isFirstNameHealty);
@@ -200,45 +203,9 @@ public class UserSettingsPage extends LoginPage {
 		String requiredMessage = "Your first name is required.";
 		String errorMessageMin = "Your first name is required to be at least 1 character";
 		String errorMessageMax = "Your first name cannot be longer than 50 characters";
-
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtFirstName));
-		txtFirstName.clear();
-		txtFirstName.sendKeys(firstName);
 		
-		boolean isDisplayed = false;
-		String minLength = txtFirstName.getAttribute("ng-minlength");
-		String maxLength = txtFirstName.getAttribute("ng-maxlength");
-
-		Thread.sleep(1000);
-		if (firstName.length()==0){
-			System.out.println("Checking empty string..");
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageFirstNameRequired));
-
-			System.out.println(errMessageFirstNameRequired.getText());
-			isFirstNameHealty = false;
-			Assert.assertEquals(errMessageFirstNameRequired.getText(), requiredMessage);
-		}
-		else if (firstName.length() < Integer.parseInt(String.valueOf(minLength))) {
-			System.out.println("Checking min value..");
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageFirstNameMin));
-
-			System.out.println(errMessageFirstNameMin.getText());
-			isFirstNameHealty = false;
-			Assert.assertEquals(errMessageFirstNameMin.getText(), errorMessageMin);
-		}
-		else if (firstName.length() > Integer.parseInt(String.valueOf(maxLength))) {
-			System.out.println("Checking max value..");
-			isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageFirstNameMax))
-					.isDisplayed();
-			System.out.println(errMessageFirstNameMax);
-			Assert.assertTrue(isDisplayed);
-			isFirstNameHealty = false;
-			Assert.assertEquals(errMessageFirstNameMax.getText(), errorMessageMax);
-		}
-		else{
-			isFirstNameHealty=true;
-		}
-		return this;
+		return enterText(UserSettingsPage.class, txtFirstName, firstName, errMessageFirstNameRequired,
+				requiredMessage, errMessageFirstNameMin, errorMessageMin, errMessageFirstNameMax, errorMessageMax);
 		}
 	
 	/**
@@ -252,44 +219,9 @@ public class UserSettingsPage extends LoginPage {
 		String errorMessageMin = "Your last name is required to be at least 1 character";
 		String errorMessageMax = "Your last name cannot be longer than 50 characters";
 
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtLastName));
-		txtLastName.clear();
-		txtLastName.sendKeys(lastName);
-		
-		boolean isDisplayed = false;
-		String minLength = txtLastName.getAttribute("ng-minlength");
-		String maxLength = txtLastName.getAttribute("ng-maxlength");
-
-		Thread.sleep(1000);
-		if (lastName.length()==0){
-			System.out.println("Checking empty string..");
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageLastNameRequired));
-
-			System.out.println(errMessageLastNameRequired.getText());
-			isLastNameHealty = false;
-			Assert.assertEquals(errMessageLastNameRequired.getText(), requiredMessage);
+		return enterText(UserSettingsPage.class, txtLastName, lastName, errMessageLastNameRequired, requiredMessage, 
+				errMessageLastNameMin, errorMessageMin, errMessageLastNameMax, errorMessageMax);
 		}
-		else if (lastName.length() < Integer.parseInt(String.valueOf(minLength))) {
-			System.out.println("Checking min value..");
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageLastNameMin));
-
-			System.out.println(errMessageLastNameMin.getText());
-			isLastNameHealty = false;
-			Assert.assertEquals(errMessageLastNameMin.getText(), errorMessageMin);
-		}
-		else if (lastName.length() > Integer.parseInt(String.valueOf(maxLength))) {
-			System.out.println("Checking max value..");
-			isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageLastNameMax))
-					.isDisplayed();
-			System.out.println(errMessageLastNameMax);
-			Assert.assertTrue(isDisplayed);
-			isLastNameHealty = false;
-			Assert.assertEquals(errMessageLastNameMax.getText(), errorMessageMax);
-		}
-		else{
-			isLastNameHealty=true;
-		}
-		return this;	}
 	
 	/**
 	 * Update email address
@@ -299,40 +231,13 @@ public class UserSettingsPage extends LoginPage {
 	 */
 	private UserSettingsPage updateEmail(String email) throws InterruptedException {
 		String requiredMessage = "Your e-mail is required.";
-		String invalidEmail = "Your e-mail is invalid.";
+		//String invalidEmail = "Your e-mail is invalid.";
 		String errorMessageMin = "Your e-mail is required to be at least 5 characters.";
 		String errorMessageMax = "Your e-mail cannot be longer than 50 characters.";
 
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtEmail));
-		txtEmail.clear();
-		txtEmail.sendKeys(email);
-		
-		boolean isDisplayed = false;
-		String minLength = txtEmail.getAttribute("ng-minlength");
-		String maxLength = txtEmail.getAttribute("ng-maxlength");
-
-		Thread.sleep(1000);
-		if (email.length() < Integer.parseInt(String.valueOf(minLength))) {
-			System.out.println("Checking min value..");
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageEmailMin));
-
-			System.out.println(errMessageEmailMin.getText());
-			isEmailHealty = false;
-			Assert.assertEquals(errMessageEmailMin.getText(), errorMessageMin);
+		return enterText(UserSettingsPage.class, txtEmail, email, errMessageEmailRequired, requiredMessage, 
+				errMessageEmailMin, errorMessageMin, errMessageEmailMax, errorMessageMax);
 		}
-		else if (email.length() > Integer.parseInt(String.valueOf(maxLength))) {
-			System.out.println("Checking max value..");
-			isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(errMessageEmailMax))
-					.isDisplayed();
-			System.out.println(errMessageEmailMax);
-			Assert.assertTrue(isDisplayed);
-			isEmailHealty = false;
-			Assert.assertEquals(errMessageEmailMax.getText(), errorMessageMax);
-		}
-		else{
-			isEmailHealty=true;
-		}
-		return this;	}
 	
 	
 	/**

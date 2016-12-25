@@ -5,19 +5,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import com.gurukula.generic.MemoryStorage;
 
 /**
  * @author Selin Gungor <selingungor01@gmail.com>
@@ -27,8 +25,7 @@ import org.testng.Assert;
 public class BranchPage extends LoginPage {
 
 	protected WebDriver driver;
-	private static int id = 0;
-	private boolean isHealty = false;
+	private boolean isNameHealty = false; private boolean isCodeHealty = false;
 
 	public BranchPage(WebDriver driver) {
 		super(driver);
@@ -142,6 +139,16 @@ public class BranchPage extends LoginPage {
 	private WebElement txtErrNamePatternChar;
 
 	/**
+	 * error name required message
+	 *
+	 **/
+	@CacheLookup
+	@FindBy(css = "[translate=\"entity.validation.required\"]")
+	private WebElement txtErrNameRequired;
+	
+	
+	
+	/**
 	 * error min code case
 	 *
 	 **/
@@ -164,6 +171,16 @@ public class BranchPage extends LoginPage {
 	@CacheLookup
 	@FindBy(css = "[ng-show=\"editForm.code.$error.pattern\"]")
 	private WebElement txtErrCodePatternChar;
+	
+	/**
+	 * error code required message
+	 *
+	 **/
+	@CacheLookup
+	@FindBy(css = "[translate=\"entity.validation.required\"]")
+	private WebElement txtErrCodeRequired;
+	
+	
 
 	String cssBranch = "";
 	/**
@@ -219,16 +236,8 @@ public class BranchPage extends LoginPage {
 		System.out.println("Creates new branch..");
 		Assert.assertTrue(checkDialogOpened);
 
-		enterBranchName(name);
-		enterBranchCode(code);
-		if(isHealty){
-			clickSaveButton();
-		}
-		else{
-			clickCancelButton();
-		}
+		createABranch(name, code);
 		
-
 		return this;
 	}
 
@@ -243,42 +252,12 @@ public class BranchPage extends LoginPage {
 	private BranchPage enterBranchName(String branchName) throws InterruptedException {
 		String errorMessageMin = "This field is required to be at least 5 characters.";
 		String errorMessageMax = "This field cannot be longer than 20 characters.";
-		String errorMessagePattrn = "This field should follow pattern ^[a-zA-Z\\s]*$.";
-
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxName));
-		txtBxName.clear();
-		txtBxName.sendKeys(branchName);
-		//txtBxName.sendKeys(Keys.RETURN);
+		//String errorMessagePattrn = "This field should follow pattern ^[a-zA-Z\\s]*$.";
+		String errorMessageRequired = "This field is required.";
 		
-		boolean isDisplayed = false;
-		String minLength = txtBxName.getAttribute("ng-minlength");
-		String maxLength = txtBxName.getAttribute("ng-maxlength");
-		patternString = txtBxName.getAttribute("ng-pattern");
-		Thread.sleep(1000);
-		if (branchName.length() < Integer.parseInt(String.valueOf(minLength))) {
-			System.out.println("Checking min value..");
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrNameMinChar));
-
-			System.out.println(txtErrNameMinChar.getText());
-			isHealty = false;
-			Assert.assertEquals(txtErrNameMinChar.getText(), errorMessageMin);
+		return enterText(BranchPage.class, txtBxName, branchName, txtErrNameRequired, errorMessageRequired, 
+				txtErrNameMinChar, errorMessageMin, txtErrNameMaxChar, errorMessageMax);
 		}
-		else if (branchName.length() > Integer.parseInt(String.valueOf(maxLength))) {
-			System.out.println("Checking max value..");
-			isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrNameMaxChar))
-					.isDisplayed();
-			System.out.println(txtErrNameMaxChar);
-			Assert.assertTrue(isDisplayed);
-			isHealty = false;
-			Assert.assertEquals(txtErrNameMaxChar.getText(), errorMessageMax);
-		}
-		else{
-			isHealty=true;
-		}
-		// Assert.assertTrue(validatePattern(patternString));
-
-		return this;
-	}
 
 	/**
 	 * enterBranchCode
@@ -291,43 +270,11 @@ public class BranchPage extends LoginPage {
 	private BranchPage enterBranchCode(String branchCode) throws InterruptedException {
 		String errorMessageMin = "This field is required to be at least 2 characters.";
 		String errorMessageMax = "This field cannot be longer than 10 characters.";
-		String errorMessagePattern = "This field should follow pattern ^[A-Z0-9]*$.";
+		//String errorMessagePattern = "This field should follow pattern ^[A-Z0-9]*$.";
+		String errorMessageRequired = "This field is required.";
 
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxCode));
-		Thread.sleep(100);
-		txtBxCode.clear();
-		txtBxCode.sendKeys(branchCode);
-
-		boolean isDisplayed = false;
-		String minLength = txtBxCode.getAttribute("ng-minlength");
-		String maxLength = txtBxCode.getAttribute("ng-maxlength");
-		patternString = txtBxCode.getAttribute("ng-pattern");
-		Thread.sleep(1000);
-		if (branchCode.length() < Integer.parseInt(String.valueOf(minLength))) {
-			System.out.println("Checking min value..");
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrCodeMinChar));
-
-			System.out.println(txtErrCodeMinChar.getText());
-			// Assert.assertTrue(isDisplayed);
-			isHealty=false;
-			Assert.assertEquals(txtErrCodeMinChar.getText(), errorMessageMin);
-		}
-		else if (branchCode.length() > Integer.parseInt(String.valueOf(maxLength))) {
-			System.out.println("Checking max value..");
-			isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrCodeMaxChar))
-					.isDisplayed();
-			System.out.println(txtErrCodeMaxChar);
-			Assert.assertTrue(isDisplayed);
-			isHealty=false;
-			Assert.assertEquals(txtErrCodeMaxChar.getText(), errorMessageMax);
-		}
-		else{
-			isHealty=true;
-		}
-
-		// TO DO: Assert.assertTrue(validatePattern(patternString));
-
-		return this;
+		return enterText(BranchPage.class, txtBxCode, branchCode, txtErrCodeRequired, 
+				errorMessageRequired, txtErrCodeMinChar, errorMessageMin, txtErrCodeMaxChar, errorMessageMax);
 	}
 
 	/**
@@ -419,14 +366,7 @@ public class BranchPage extends LoginPage {
     	JavascriptExecutor executor = (JavascriptExecutor)driver;
     	executor.executeScript("$('[class=\"table table-striped\"] tbody tr:nth-child("+ID+") [ng-click=\"showUpdate(branch.id)\"]').click()");
     	
-    	enterBranchName(updatedName);
-    	enterBranchCode(updatedCode);
-    	if(isHealty){
-			 clickSaveButton();
-		 }
-		 else{
-			 clickCancelButton();
-		 }
+    	createABranch(updatedName, updatedCode);
 		return new BranchDetailPage(driver);
 	}
 	
@@ -492,6 +432,26 @@ public class BranchPage extends LoginPage {
 		subString = text.substring(0 , iend); //this will give abc
 		}
 		return subString;
+	}
+	
+	/**
+	 * creating new branch internal function
+	 * @param name
+	 * @param code
+	 * @throws InterruptedException
+	 */
+	private void createABranch(String name, String code) throws InterruptedException
+	{
+		enterBranchName(name);
+		isNameHealty = MemoryStorage.isHealty;
+		enterBranchCode(code);
+			isCodeHealty = MemoryStorage.isHealty;
+		if(isNameHealty && isCodeHealty){
+			clickSaveButton();
+		}
+		else{
+		clickCancelButton();
+	}
 	}
 
 }

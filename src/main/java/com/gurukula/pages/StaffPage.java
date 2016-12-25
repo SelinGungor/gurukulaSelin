@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -13,12 +12,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import com.gurukula.generic.MemoryStorage;
 
 public class StaffPage extends LoginPage {
 	
 	protected WebDriver driver;
-	private boolean isHealty = false;
+	private boolean isNameHealty = false;
 
 	public StaffPage(WebDriver driver) {
 		super(driver);
@@ -77,7 +76,7 @@ public class StaffPage extends LoginPage {
 	 *
 	 **/
 	 @CacheLookup
-	 @FindBy(css = "[ng-show=\"editForm.name.$error.minlength\"]")
+	 @FindBy(css = "[translate=\"entity.validation.minlength\"]")
 	 private WebElement txtErrNameStaffMinChar;
 	 
 	 /**
@@ -85,15 +84,24 @@ public class StaffPage extends LoginPage {
 	 *
 	 **/
 	 @CacheLookup
-	 @FindBy(css = "[ng-show=\"editForm.name.$error.maxlength\"]")
+	 @FindBy(css = "[translate=\"entity.validation.maxlength\"]")
 	 private WebElement txtErrNameStaffMaxChar;
+	 
+	 /**
+	 * error max text staff case
+	 *
+	 **/
+	 @CacheLookup
+	 @FindBy(css = "[translate=\"entity.validation.required\"]")
+	 private WebElement txtErrStaffRequired;
+	 
 	 
 	 /**
 	 * pattern text error 
 	 *
 	 **/
 	 @CacheLookup
-	 @FindBy(css = "ng-show=\"editForm.name.$error.pattern\"")
+	 @FindBy(css = "[translate=\"entity.validation.pattern\"]")
 	 private WebElement txtErrPatternStaff;
 	
 	//Methods
@@ -105,19 +113,32 @@ public class StaffPage extends LoginPage {
 	 public StaffPage createNewStaff(String staffName,String branchName) throws InterruptedException
 	 {
 		 clickElement(driver, 10, btnCreateNewStaff);
-		 enterStaffName(staffName);
-		 selectBranch(branchName);
-		 if(isHealty){
-			 clickSaveButton();
-		 }
-		 else{
-			 clickCancelButton();
-		 }
-		return this;		 
-	 }
+		 createAStaff(staffName,branchName);
+		 return this;
+	}
 	 
 	 
-	   /**
+	 /**
+	  * create a staff internal function
+	  * @param staffName
+	  * @param branchName
+	  * @throws InterruptedException
+	  */
+	   private void createAStaff(String staffName, String branchName) throws InterruptedException {
+		    enterStaffName(staffName);
+			 isNameHealty = MemoryStorage.isHealty;
+			 selectBranch(branchName);
+			 if(isNameHealty){
+				 clickSaveButton();
+			 }
+			 else{
+				 clickCancelButton();
+			 }
+   	}
+
+
+
+	/**
 		 * enterStaffhName
 		 *
 		 * @param staffName name of the branch		 *            
@@ -125,44 +146,14 @@ public class StaffPage extends LoginPage {
 		 * @throws InterruptedException
 		 */
 		private StaffPage enterStaffName(String staffName) throws InterruptedException {
+			
 			String errorMessageMin = "This field is required to be at least 5 characters.";
 			String errorMessageMax = "This field cannot be longer than 50 characters.";
-			String errorMessagePattrn = "This field should follow pattern ^[a-zA-Z\\s]*$.";
-
-			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtNameStaff));
-
-			txtNameStaff.clear();
-			txtNameStaff.sendKeys(staffName);
-
-			boolean isDisplayed = false;
-			String minLength = txtNameStaff.getAttribute("ng-minlength");
-			String maxLength = txtNameStaff.getAttribute("ng-maxlength");
-			String patternString = txtNameStaff.getAttribute("ng-pattern");
-			Thread.sleep(1000);
+			//String errorMessagePattrn = "This field should follow pattern ^[a-zA-Z\\s]*$.";
+			String requiredMessage = "This field is required.";
 			
-			System.out.println(minLength);
-			if (staffName.length() < Integer.parseInt(String.valueOf(minLength))) { 
-				System.out.println("Checking min value..");
-				new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrNameStaffMinChar));
-
-				System.out.println(txtErrNameStaffMinChar.getText());
-				isHealty=false;
-				Assert.assertEquals(txtErrNameStaffMinChar.getText(), errorMessageMin);
-			}
-			else if (staffName.length() > Integer.parseInt(String.valueOf(maxLength))) {
-				System.out.println("Checking max value..");
-				isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtErrNameStaffMaxChar))
-						.isDisplayed();
-				System.out.println(txtErrNameStaffMaxChar);
-				Assert.assertTrue(isDisplayed);
-				isHealty=false;
-				Assert.assertEquals(txtErrNameStaffMaxChar.getText(), errorMessageMax);
-			}
-			else{
-				isHealty=true;
-			}
-
-			// Assert.assertTrue(validatePattern(patternString));
+			enterText(StaffPage.class, txtNameStaff, staffName, txtErrStaffRequired, requiredMessage, txtErrNameStaffMinChar, errorMessageMin, txtErrNameStaffMaxChar, errorMessageMax);
+			
 
 			return this;
 		}
@@ -184,15 +175,8 @@ public class StaffPage extends LoginPage {
 
 	    	JavascriptExecutor executor = (JavascriptExecutor)driver;
 	    	executor.executeScript("$('[class=\"table table-striped\"] tbody tr:nth-child("+ID+") [ng-click=\"showUpdate(staff.id)\"]').click()");
-	    	
-	    	enterStaffName(updatedName);
-	    	selectBranch(updatedBranch);
-	    	 if(isHealty){
-				 clickSaveButton();
-			 }
-			 else{
-				 clickCancelButton();
-			 }
+	    	Thread.sleep(1000);
+	    	createAStaff(updatedName, updatedBranch);
 			return new StaffPage(driver);
 		}
 		

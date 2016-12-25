@@ -62,9 +62,9 @@ public class BranchTests extends BaseCase {
 						  .clickLogin()
 						  .login("admin", "admin", true, true)
 						  .clickBranches()
-						  .createNewBranch("selin", "A32")
+						  .createNewBranch("selin", "S92")
 						  .viewBranchDetail()
-						  .checkInfoOnBranchDetail("selin", "A32")
+						  .checkInfoOnBranchDetail("selin", "S92")
 						  .editBranch(1, "deniz", "D91");						  				  				 
 	}
 	

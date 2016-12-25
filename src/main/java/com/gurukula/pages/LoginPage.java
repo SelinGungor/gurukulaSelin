@@ -1,6 +1,5 @@
 package com.gurukula.pages;
 
-import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -73,16 +72,7 @@ public class LoginPage extends HomePage {
     
     //Methods
     
-    //private methods
-    /**
-   	 *  Clicks authenticate button
-        *
-        **/
-   	private LoginPage clickAuthenticateButton()
-   	{
-   		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(btnAuthenticate)).click();
-   		return this;
-   	}
+   
    	
    	//public methods
     /**
@@ -99,10 +89,10 @@ public class LoginPage extends HomePage {
    		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(txtBxPassword)).sendKeys(password);
    		if(automaticLogin == true)
    		{
-   			new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(chckBxAutomaticLogin)).click();
+   			clickElement(driver, 10, chckBxAutomaticLogin);
    		}
    		
-   		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(btnAuthenticate)).click();
+   		clickElement(driver, 10, btnAuthenticate);
    		
    		if(isLoginSuccessful)
    		{ 
@@ -148,5 +138,5 @@ public class LoginPage extends HomePage {
 		return new HomePage(driver);   		
    	}
 
-
+    //private methods
 }

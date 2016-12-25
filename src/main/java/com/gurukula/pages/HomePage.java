@@ -7,9 +7,10 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import com.gurukula.generic.MemoryStorage;
 
 /**
  * @author      Selin Gungor <selingungor01@gmail.com>
@@ -44,6 +45,15 @@ public class HomePage {
     @CacheLookup
     @FindBy( xpath = "html/body/div[3]/div[1]/div/div/div[2]/div/div[1]/a")
     private WebElement loginOnPage;
+    
+    /**
+     * Register New Account
+     *
+     **/
+    @CacheLookup
+    @FindBy( css = "[translate=\"global.messages.info.register\"]")
+    private WebElement registerNewAccount;
+    
 
     //Navigation Bar Elements
 	 /**
@@ -152,12 +162,13 @@ public class HomePage {
 	}
 	
 	
-	public UserSettingsPage clickSettings()
+	public UserSettingsPage clickSettings() throws InterruptedException
 	{
 		clickElement(driver,10,navBarAccount);
 		isTextExist("Staff");
 		clickElement(driver,10,navBarSettings);
 		String pageSource = driver.getPageSource();
+		Thread.sleep(1000);
 		Assert.assertTrue(pageSource.contains("User settings"));
 		return new UserSettingsPage(driver);
 	}
@@ -166,6 +177,77 @@ public class HomePage {
 	{
 		new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOf(element)).click();
 	}
+	
+	public RegistrationPage clickRegisterANewAccount()
+	{
+		clickGurukulaIcon();
+		clickElement(driver, 10, registerNewAccount);
+		return new RegistrationPage(driver);
+	}
+	
+	
+	/**
+	 * 
+	 * @param expectedPage
+	 * @param textBox
+	 * @param text
+	 * @param requiredWarnMesageElement
+	 * @param requiredMessage
+	 * @param minCharWarnMessageElement
+	 * @param minCharWarnMessage
+	 * @param maxCharWarnMessageElement
+	 * @param maxCharWarnMessage
+	 * @param isHealty
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public <T> T enterText(Class<T> expectedPage,WebElement textBox, String text, 
+									   WebElement requiredWarnMesageElement, String requiredMessage,
+									   WebElement minCharWarnMessageElement, String minCharWarnMessage, 
+									   WebElement maxCharWarnMessageElement, String maxCharWarnMessage) throws InterruptedException {
+		MemoryStorage.isHealty= false;
+		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(textBox));
+		textBox.click();
+		textBox.clear();
+		textBox.sendKeys(text);
+		
+		boolean isDisplayed = false;
+		String minLength = textBox.getAttribute("ng-minlength");
+		String maxLength = textBox.getAttribute("ng-maxlength");
+		
+		Thread.sleep(1000);
+		if (text.length()==0 || text == " "){
+		System.out.println("Checking empty string..");
+		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(requiredWarnMesageElement));
+		
+		System.out.println(requiredWarnMesageElement.getText());
+		MemoryStorage.isHealty= false;
+		Assert.assertEquals(requiredWarnMesageElement.getText(), requiredMessage);
+		}
+		else if (text.length() < Integer.parseInt(String.valueOf(minLength))) {
+		Thread.sleep(200);
+		System.out.println("Checking min value..");
+		new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOf(minCharWarnMessageElement));
+		
+		System.out.println(minCharWarnMessageElement.getText());
+		MemoryStorage.isHealty= false;
+		Assert.assertEquals(minCharWarnMessageElement.getText(), minCharWarnMessage);
+		}
+		else if (text.length() > Integer.parseInt(String.valueOf(maxLength))) {
+			Thread.sleep(200);
+		System.out.println("Checking max value..");
+		isDisplayed = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(maxCharWarnMessageElement))
+		.isDisplayed();
+		System.out.println(maxCharWarnMessageElement);
+		Assert.assertTrue(isDisplayed);
+		MemoryStorage.isHealty= false;
+		Assert.assertEquals(maxCharWarnMessageElement.getText(), maxCharWarnMessage);
+		}
+		else{
+			MemoryStorage.isHealty=true;
+		}
+		return PageFactory.initElements(driver, expectedPage);	
+		}
 	
 	
 	

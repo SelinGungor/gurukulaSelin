@@ -46,6 +46,6 @@ public class StaffTests extends BaseCase {
 						  .login("admin", "admin", true, true)
 						  .clickStaff()
 						  .createNewStaff("deno","deniz")	
-						  .editStaff(1,"updatedName","selin");						 
+						  .editStaff(1,"updatedName","mybranchname");						 
 	}
 }

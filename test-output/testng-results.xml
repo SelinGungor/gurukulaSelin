@@ -2,21 +2,21 @@
 <testng-results skipped="0" failed="1" total="2" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11' height='100' width='100'/> </a>]]>
+      <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48' height='100' width='100'/> </a>]]>
     </line>
     <line>
-      <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11' height='100' width='100'/> </a>]]>
+      <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48' height='100' width='100'/> </a>]]>
     </line>
     <line>
-      <![CDATA[[TestResult name=TC002_updateUserAccountInfoNegative status=SUCCESS method=UserAccountTests.TC002_updateUserAccountInfoNegative()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_24-12-2016_23-24'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_24-12-2016_23-24' height='100' width='100'/> </a>]]>
+      <![CDATA[[TestResult name=TC002_updateUserAccountInfoNegative status=SUCCESS method=UserAccountTests.TC002_updateUserAccountInfoNegative()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_25-12-2016_14-01'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_25-12-2016_14-01' height='100' width='100'/> </a>]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25573" started-at="2016-12-24T21:11:02Z" finished-at="2016-12-24T21:11:27Z">
+  <suite name="Default suite" duration-ms="19453" started-at="2016-12-25T12:41:43Z" finished-at="2016-12-25T12:42:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25573" started-at="2016-12-24T21:11:02Z" finished-at="2016-12-24T21:11:27Z">
+    <test name="Default test" duration-ms="19453" started-at="2016-12-25T12:41:43Z" finished-at="2016-12-25T12:42:02Z">
       <class name="com.gurukula.e2eTests.UserAccountTests">
-        <test-method status="PASS" signature="setEnv(java.lang.String)[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="setEnv" is-config="true" duration-ms="10" started-at="2016-12-24T23:11:02Z" finished-at="2016-12-24T23:11:02Z">
+        <test-method status="PASS" signature="setEnv(java.lang.String)[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="setEnv" is-config="true" duration-ms="10" started-at="2016-12-25T14:41:43Z" finished-at="2016-12-25T14:41:43Z">
           <params>
             <param index="0">
               <value>
@@ -27,24 +27,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setEnv -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="setUp" is-config="true" duration-ms="2416" started-at="2016-12-24T23:11:02Z" finished-at="2016-12-24T23:11:04Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="setUp" is-config="true" duration-ms="2135" started-at="2016-12-25T14:41:43Z" finished-at="2016-12-25T14:41:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="TC001_updateUserAccountInfo" duration-ms="7262" started-at="2016-12-24T23:11:04Z" finished-at="2016-12-24T23:11:11Z">
+        <test-method status="FAIL" signature="TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="TC001_updateUserAccountInfo" duration-ms="2847" started-at="2016-12-25T14:41:45Z" finished-at="2016-12-25T14:41:48Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [Successfull] but found []]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Successfull] but found []
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertEquals(Assert.java:123)
-	at org.testng.Assert.assertEquals(Assert.java:176)
-	at org.testng.Assert.assertEquals(Assert.java:186)
-	at com.gurukula.pages.UserSettingsPage.updateAccountInfo(UserSettingsPage.java:185)
-	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:19)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.gurukula.pages.HomePage.clickSettings(HomePage.java:172)
+	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:18)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -75,7 +74,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC001_updateUserAccountInfo -->
-        <test-method status="PASS" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="closeBrowser" is-config="true" duration-ms="3552" started-at="2016-12-24T23:11:11Z" finished-at="2016-12-24T23:11:15Z">
+        <test-method status="PASS" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="closeBrowser" is-config="true" duration-ms="3413" started-at="2016-12-25T14:41:48Z" finished-at="2016-12-25T14:41:51Z">
           <params>
             <param index="0">
               <value>
@@ -85,22 +84,22 @@
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11' height='100' width='100'/> </a>]]>
+              <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48' height='100' width='100'/> </a>]]>
             </line>
             <line>
-              <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_24-12-2016_23-11' height='100' width='100'/> </a>]]>
+              <![CDATA[[TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUserAccountInfo()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC001_updateUserAccountInfo_25-12-2016_14-48' height='100' width='100'/> </a>]]>
             </line>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="setUp" is-config="true" duration-ms="2010" started-at="2016-12-24T23:11:15Z" finished-at="2016-12-24T23:11:17Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="setUp" is-config="true" duration-ms="2120" started-at="2016-12-25T14:41:51Z" finished-at="2016-12-25T14:41:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="TC002_updateUserAccountInfoNegative()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="TC002_updateUserAccountInfoNegative" duration-ms="7238" started-at="2016-12-24T23:11:17Z" finished-at="2016-12-24T23:11:24Z">
+        <test-method status="PASS" signature="TC002_updateUserAccountInfoNegative()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="TC002_updateUserAccountInfoNegative" duration-ms="8088" started-at="2016-12-25T14:41:53Z" finished-at="2016-12-25T14:42:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC002_updateUserAccountInfoNegative -->
-        <test-method status="PASS" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="closeBrowser" is-config="true" duration-ms="3080" started-at="2016-12-24T23:11:24Z" finished-at="2016-12-24T23:11:27Z">
+        <test-method status="PASS" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987]" name="closeBrowser" is-config="true" duration-ms="837" started-at="2016-12-25T14:42:01Z" finished-at="2016-12-25T14:42:02Z">
           <params>
             <param index="0">
               <value>
@@ -110,7 +109,7 @@
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[TestResult name=TC002_updateUserAccountInfoNegative status=SUCCESS method=UserAccountTests.TC002_updateUserAccountInfoNegative()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_24-12-2016_23-24'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_24-12-2016_23-24' height='100' width='100'/> </a>]]>
+              <![CDATA[[TestResult name=TC002_updateUserAccountInfoNegative status=SUCCESS method=UserAccountTests.TC002_updateUserAccountInfoNegative()[pri:0, instance:com.gurukula.e2eTests.UserAccountTests@28d25987] output={null}]<br/><a href='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_25-12-2016_14-01'> <img src='F:\workworkwork\gurukulaSelin\target\surefire-reports\screenShots\gurukula_TC002_updateUserAccountInfoNegative_25-12-2016_14-01' height='100' width='100'/> </a>]]>
             </line>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

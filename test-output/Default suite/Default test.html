@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Dec 24 23:11:02 EET 2016</td>
+<td>Started on:</td><td>Sun Dec 25 14:41:43 EET 2016</td>
 </tr>
-<tr><td>Total time:</td><td>25 seconds (25573 ms)</td>
+<tr><td>Total time:</td><td>19 seconds (19453 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,13 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo()'><b>TC001_updateUserAccountInfo</b><br>Test class: com.gurukula.e2eTests.UserAccountTests</td>
-<td><div><pre>java.lang.AssertionError: expected [Successfull] but found []
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertEquals(Assert.java:123)
-	at org.testng.Assert.assertEquals(Assert.java:176)
-	at org.testng.Assert.assertEquals(Assert.java:186)
-	at com.gurukula.pages.UserSettingsPage.updateAccountInfo(UserSettingsPage.java:185)
-	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:19)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.gurukula.pages.HomePage.clickSettings(HomePage.java:172)
+	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:18)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -108,15 +107,14 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1976804832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1976804832'><pre>java.lang.AssertionError: expected [Successfull] but found []
+</pre></div><a href='#' onClick='toggleBox("stack-trace1682681674", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1682681674'><pre>java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertEquals(Assert.java:123)
-	at org.testng.Assert.assertEquals(Assert.java:176)
-	at org.testng.Assert.assertEquals(Assert.java:186)
-	at com.gurukula.pages.UserSettingsPage.updateAccountInfo(UserSettingsPage.java:185)
-	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:19)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.gurukula.pages.HomePage.clickSettings(HomePage.java:172)
+	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:18)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -142,7 +140,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
 </pre></div></td>
-<td>7</td>
+<td>2</td>
 <td>com.gurukula.e2eTests.UserAccountTests@28d25987</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -155,7 +153,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.gurukula.e2eTests.UserAccountTests.TC002_updateUserAccountInfoNegative()'><b>TC002_updateUserAccountInfoNegative</b><br>Test class: com.gurukula.e2eTests.UserAccountTests</td>
 <td></td>
-<td>7</td>
+<td>8</td>
 <td>com.gurukula.e2eTests.UserAccountTests@28d25987</td></tr>
 </table><p>
 </body>
