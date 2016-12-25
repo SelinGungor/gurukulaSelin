@@ -13,7 +13,7 @@ import com.gurukula.pages.Factory;
 public class RegistrationTests extends BaseCase {
 	
 	@Test
-	public void TC001_registerANewAccount() throws InterruptedException
+	public void TC001_registerANewAccountTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -23,7 +23,7 @@ public class RegistrationTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC002_registerANewAccountNegativeLogin() throws InterruptedException
+	public void TC002_registerANewAccountNegativeLoginTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -33,7 +33,7 @@ public class RegistrationTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC003_registerANewAccountNegativeEmail() throws InterruptedException
+	public void TC003_registerANewAccountNegativeEmailTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -44,7 +44,7 @@ public class RegistrationTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC004_registerANewAccountNegativePasswordMatch() throws InterruptedException
+	public void TC004_registerANewAccountNegativePasswordMatchTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);

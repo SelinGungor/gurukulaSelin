@@ -13,7 +13,7 @@ import com.gurukula.pages.Factory;
 public class StaffTests extends BaseCase {
 	
 	@Test
-	public void TC001_checkStaff() throws InterruptedException
+	public void TC001_checkStaffTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -25,7 +25,7 @@ public class StaffTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC002_checkStaffDetail() throws InterruptedException
+	public void TC002_checkStaffDetailTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -39,7 +39,7 @@ public class StaffTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC003_checkStaffNegative() throws InterruptedException
+	public void TC003_checkStaffNegativeTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -51,7 +51,7 @@ public class StaffTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC004_editStaff() throws InterruptedException
+	public void TC004_editStaffTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);

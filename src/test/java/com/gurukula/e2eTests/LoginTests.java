@@ -13,7 +13,7 @@ import com.gurukula.pages.Factory;
 public class LoginTests extends BaseCase {
 	
 	@Test
-	public void TC001_checkHomePage()
+	public void TC001_checkHomePageTest()
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -22,7 +22,7 @@ public class LoginTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC002_loginPositive()
+	public void TC002_loginPositiveTest()
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -32,7 +32,7 @@ public class LoginTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC003_loginNegative()
+	public void TC003_loginNegativeTest()
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -42,7 +42,7 @@ public class LoginTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC004_logOut()
+	public void TC004_logOutTest()
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);

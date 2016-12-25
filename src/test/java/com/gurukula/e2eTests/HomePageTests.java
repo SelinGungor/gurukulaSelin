@@ -14,7 +14,7 @@ public class HomePageTests extends BaseCase {
 
 	
 	@Test
-	public void TC001_checkHomePage()
+	public void TC001_checkHomePageTest()
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);

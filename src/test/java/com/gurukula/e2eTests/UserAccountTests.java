@@ -8,7 +8,7 @@ import com.gurukula.pages.Factory;
 public class UserAccountTests extends BaseCase{
 
 	@Test
-	public void TC001_updateUserAccountInfo() throws InterruptedException
+	public void TC001_updateUserAccountInfoTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -20,7 +20,7 @@ public class UserAccountTests extends BaseCase{
 	}
 	
 	@Test
-	public void TC002_updateUserAccountInfoNegative() throws InterruptedException
+	public void TC002_updateUserAccountInfoNegativeTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);

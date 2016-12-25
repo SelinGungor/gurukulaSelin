@@ -8,7 +8,7 @@ import com.gurukula.pages.Factory;
 public class PaginationTests extends BaseCase {
 
 	@Test(invocationCount = 25)
-	public void TC001_checkPagination() throws InterruptedException
+	public void TC001_checkPaginationTest() throws InterruptedException
 	{
 		
 		driver.get(gurukulaURL);
@@ -22,7 +22,7 @@ public class PaginationTests extends BaseCase {
 	}
 	
 	@Test(invocationCount = 21)
-	public void TC002_pagination() throws InterruptedException
+	public void TC002_paginationTest() throws InterruptedException
 	{
 		
 		driver.get(gurukulaURL);

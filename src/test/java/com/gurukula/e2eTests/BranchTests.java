@@ -13,7 +13,7 @@ import com.gurukula.pages.Factory;
 public class BranchTests extends BaseCase {
 	
 	@Test
-	public void TC001_checkNewBranch() throws InterruptedException
+	public void TC001_checkNewBranchTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -27,7 +27,7 @@ public class BranchTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC002_checkNewBranchNegative() throws InterruptedException
+	public void TC002_checkNewBranchNegativeTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -39,7 +39,7 @@ public class BranchTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC003_deleteBranch() throws InterruptedException
+	public void TC003_deleteBranchTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -54,7 +54,7 @@ public class BranchTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC004_editBranch() throws InterruptedException
+	public void TC004_editBranchTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -69,7 +69,7 @@ public class BranchTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC005_searchBranch() throws InterruptedException
+	public void TC005_searchBranchTest() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
