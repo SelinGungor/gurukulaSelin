@@ -25,7 +25,21 @@ public class StaffTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC002_checkStaffNegative() throws InterruptedException
+	public void TC002_checkStaffDetail() throws InterruptedException
+	{
+		driver.get(gurukulaURL);
+		Factory factory = new Factory(driver);
+		factory.homePage().clickGurukulaIcon()
+						  .clickLogin()
+						  .login("admin", "admin", true, true)
+						  .clickStaff()
+						  .createNewStaff("selingungor","deniz")
+						  .viewStaffDetail()
+						  .checkInfoOnStaffDetail("selingungor", "deniz");							 
+	}
+	
+	@Test
+	public void TC003_checkStaffNegative() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);
@@ -37,7 +51,7 @@ public class StaffTests extends BaseCase {
 	}
 	
 	@Test
-	public void TC003_editStaff() throws InterruptedException
+	public void TC004_editStaff() throws InterruptedException
 	{
 		driver.get(gurukulaURL);
 		Factory factory = new Factory(driver);

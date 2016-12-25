@@ -18,6 +18,7 @@ public class StaffPage extends LoginPage {
 	
 	protected WebDriver driver;
 	private boolean isNameHealty = false;
+	String cssStaff = "";
 
 	public StaffPage(WebDriver driver) {
 		super(driver);
@@ -33,7 +34,7 @@ public class StaffPage extends LoginPage {
 	 */
 	 @CacheLookup
 	 @FindBy( css = "[data-target=\"#saveStaffModal\"]")
-	 private WebElement btnCreateNewStaff;
+	protected WebElement btnCreateNewStaff;
 	 
 	 /**
 	  * Staff Dialog
@@ -103,6 +104,16 @@ public class StaffPage extends LoginPage {
 	 @CacheLookup
 	 @FindBy(css = "[translate=\"entity.validation.pattern\"]")
 	 private WebElement txtErrPatternStaff;
+	 
+	 //Pagination Elements
+	 /**
+	 * nextPage
+	 *
+	 **/
+	 @CacheLookup
+	 @FindBy(css = ".pager li:nth-child(3)")
+	 private WebElement nextPage;
+	 
 	
 	//Methods
 	 
@@ -181,6 +192,53 @@ public class StaffPage extends LoginPage {
 		}
 		
 		/**
+		 * view staff detail
+		 * 
+		 * @return
+		 * @throws InterruptedException
+		 */
+		public StaffDetailPage viewStaffDetail() throws InterruptedException {
+			System.out.println("Looking at branch detail page..");
+			Thread.sleep(100);
+			WebElement element = getLastItem();
+			String staffID =getID(element.getText());
+			System.out.println("the id of last item : "+staffID);
+
+	    	String css = cssStaff(staffID);
+	    	
+	    	
+	    	WebElement elementItemBranch = driver.findElement(By.cssSelector(css));
+	    	JavascriptExecutor executor = (JavascriptExecutor)driver;
+	    	System.out.println(staffID);
+	    	executor.executeScript("$('[href=\"#/staff/"+staffID+"\"]').click();", elementItemBranch);
+	    	
+	  
+			return new StaffDetailPage(driver);
+
+		}
+		
+		private String cssStaff(String id) {
+			return cssStaff = "a[href=\"#/staff/" + id + "\"]";
+		}
+		
+		/**
+		 * Gets the last staff
+		 * @return
+		 * @throws InterruptedException
+		 */
+		private WebElement getLastItem() throws InterruptedException {
+			Thread.sleep(1000);
+			List<WebElement> allStaffs = driver.findElements( By.cssSelector(".ng-scope [ng-repeat=\"staff in staffs\"]") );
+
+			int itemCountStaffList = allStaffs.size() - 1;
+
+			System.out.println("branch size is : " +itemCountStaffList);
+			allStaffs.get(itemCountStaffList);
+			System.out.println("last element is : " +allStaffs.get(itemCountStaffList));
+			return allStaffs.get(itemCountStaffList);
+		}
+		
+		/**
 		 * selects the branch from dropDownMenu
 		 * @param branchName name of one of existing branches 
 		  */
@@ -197,7 +255,7 @@ public class StaffPage extends LoginPage {
 		private StaffPage clickSaveButton()
 		{
 			clickElement(driver, 10, saveButtonOnDialog);
-			new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnCreateNewStaff));
+			new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnCreateNewStaff)).isDisplayed();
 			return this;
 		}
 		
@@ -207,8 +265,48 @@ public class StaffPage extends LoginPage {
 		private StaffPage clickCancelButton()
 		{
 			clickElement(driver, 10, btnCancel);
-			new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnCreateNewStaff));
+			new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(btnCreateNewStaff)).isDisplayed();
 			return this;
+		}
+		
+		/**
+		 * Check pagination
+		 * @return
+		 * @throws InterruptedException
+		 */
+		public StaffPage checkPagination(boolean goNextPage) throws InterruptedException
+		{	
+			Thread.sleep(1000);
+			List<WebElement> allStaffs = driver.findElements( By.cssSelector(".ng-scope [ng-repeat=\"staff in staffs\"]") );
+	
+			int itemCountStaffList = allStaffs.size();
+			
+			if(itemCountStaffList == 20)
+			{
+				checkNextPageButton();
+				if(goNextPage)
+				{
+					 goNextPage();
+				}
+			}	
+			return this;
+			
+		}
+		
+		/**
+		 * check pagination exist
+		 */
+		private void checkNextPageButton()
+		{
+			new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(nextPage)).isDisplayed();
+		}
+		
+		/**
+		 * go next page
+		 */
+		public void goNextPage()
+		{
+			clickElement(driver, 10, nextPage);
 		}
 		
 }

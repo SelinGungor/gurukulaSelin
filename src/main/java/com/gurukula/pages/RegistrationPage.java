@@ -198,6 +198,15 @@ public class RegistrationPage extends HomePage {
 	
 	  //Methods
 		
+		/**
+		 * Register a new account
+		 * @param login
+		 * @param emailAddress
+		 * @param password
+		 * @param confirmPassword
+		 * @return
+		 * @throws InterruptedException
+		 */
 		public RegistrationPage registerANewAccount(String login, String emailAddress, String password, String confirmPassword) throws InterruptedException
 		{
 			enterLoginInfo(login);

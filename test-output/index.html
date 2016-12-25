@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\z003fc3z\AppData\Local\Temp\testng-eclipse-1951416868\testng-customsuite.xml</span>
+                    <span>C:\Users\z003fc3z\AppData\Local\Temp\testng-eclipse-58315933\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,21 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Default_suite">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.gurukula.e2eTests.UserAccountTests" hash-for-method="TC001_updateUserAccountInfo">TC001_updateUserAccountInfo</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -115,7 +101,27 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.gurukula.e2eTests.UserAccountTests" hash-for-method="TC002_updateUserAccountInfoNegative">TC002_updateUserAccountInfoNegative</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.gurukula.dataTests.DataTests" hash-for-method="csvDataRead(donut, D10)">csvDataRead(donut, D10)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.gurukula.dataTests.DataTests" hash-for-method="csvDataRead(marshmallow, M45)">csvDataRead(marshmallow, M45)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.gurukula.dataTests.DataTests" hash-for-method="csvDataRead(jellybean, E91)">csvDataRead(jellybean, E91)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.gurukula.dataTests.DataTests" hash-for-method="csvDataRead(mybranch, M01)">csvDataRead(mybranch, M01)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.gurukula.dataTests.DataTests" hash-for-method="csvDataRead(selinselin, M02)">csvDataRead(selinselin, M02)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -130,96 +136,50 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.gurukula.e2eTests.UserAccountTests</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="TC001_updateUserAccountInfo">
-                  </a> <!-- TC001_updateUserAccountInfo -->
-                  <span class="method-name">TC001_updateUserAccountInfo</span>
-                  <div class="stack-trace"><b>"java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at com.gurukula.pages.HomePage.clickSettings(HomePage.java:172)
-	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:18)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-<br/> java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at com.gurukula.pages.HomePage.clickSettings(HomePage.java:172)
-	at com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:18)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-"</b><br>org.testng.Assert.fail(Assert.java:94)<br>org.testng.Assert.failNotEquals(Assert.java:494)<br>org.testng.Assert.assertTrue(Assert.java:42)<br>org.testng.Assert.assertTrue(Assert.java:52)<br>com.gurukula.pages.HomePage.clickSettings(HomePage.java:172)<br>com.gurukula.e2eTests.UserAccountTests.TC001_updateUserAccountInfo(UserAccountTests.java:18)<br>sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br>sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br>java.lang.reflect.Method.invoke(Unknown Source)<br>org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)<br>org.testng.internal.Invoker.invokeMethod(Invoker.java:714)<br>org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)<br>org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)<br>org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)<br>org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)<br>org.testng.TestRunner.privateRun(TestRunner.java:767)<br>org.testng.TestRunner.run(TestRunner.java:617)<br>org.testng.SuiteRunner.runTest(SuiteRunner.java:334)<br>org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)<br>org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)<br>org.testng.SuiteRunner.run(SuiteRunner.java:240)<br>org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br>org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br>org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)<br>org.testng.TestNG.runSuitesLocally(TestNG.java:1123)<br>org.testng.TestNG.run(TestNG.java:1031)<br>org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)<br>org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)<br>org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)<br>
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.gurukula.e2eTests.UserAccountTests</span>
+              <span class="class-name">com.gurukula.dataTests.DataTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC002_updateUserAccountInfoNegative">
-                  </a> <!-- TC002_updateUserAccountInfoNegative -->
-                  <span class="method-name">TC002_updateUserAccountInfoNegative</span>
+                  <a name="csvDataRead(donut, D10)">
+                  </a> <!-- csvDataRead(donut, D10) -->
+                  <span class="method-name">csvDataRead</span>
+                  <span class="parameters">(donut, D10)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="csvDataRead(marshmallow, M45)">
+                  </a> <!-- csvDataRead(marshmallow, M45) -->
+                  <span class="method-name">csvDataRead</span>
+                  <span class="parameters">(marshmallow, M45)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="csvDataRead(jellybean, E91)">
+                  </a> <!-- csvDataRead(jellybean, E91) -->
+                  <span class="method-name">csvDataRead</span>
+                  <span class="parameters">(jellybean, E91)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="csvDataRead(mybranch, M01)">
+                  </a> <!-- csvDataRead(mybranch, M01) -->
+                  <span class="method-name">csvDataRead</span>
+                  <span class="parameters">(mybranch, M01)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="csvDataRead(selinselin, M02)">
+                  </a> <!-- csvDataRead(selinselin, M02) -->
+                  <span class="method-name">csvDataRead</span>
+                  <span class="parameters">(selinselin, M02)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -227,7 +187,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\z003fc3z\AppData\Local\Temp\testng-eclipse-1951416868\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\z003fc3z\AppData\Local\Temp\testng-eclipse-58315933\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -236,7 +196,11 @@
 &lt;suite name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.gurukula.e2eTests.UserAccountTests&quot;/&gt;
+      &lt;class name=&quot;com.gurukula.dataTests.DataTests&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;csvDataRead&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.gurukula.dataTests.DataTests --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -276,20 +240,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC002_updateUserAccountInfoNegative')
-data.setCell(0, 2, 'com.gurukula.e2eTests.UserAccountTests')
-data.setCell(0, 3, 8088);
+data.setCell(0, 1, 'csvDataRead')
+data.setCell(0, 2, 'com.gurukula.dataTests.DataTests')
+data.setCell(0, 3, 5545);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'TC001_updateUserAccountInfo')
-data.setCell(1, 2, 'com.gurukula.e2eTests.UserAccountTests')
-data.setCell(1, 3, 2847);
+data.setCell(1, 1, 'csvDataRead')
+data.setCell(1, 2, 'com.gurukula.dataTests.DataTests')
+data.setCell(1, 3, 5105);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'csvDataRead')
+data.setCell(2, 2, 'com.gurukula.dataTests.DataTests')
+data.setCell(2, 3, 5031);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'csvDataRead')
+data.setCell(3, 2, 'com.gurukula.dataTests.DataTests')
+data.setCell(3, 3, 4986);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'csvDataRead')
+data.setCell(4, 2, 'com.gurukula.dataTests.DataTests')
+data.setCell(4, 3, 4972);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 25 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -315,36 +291,70 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.gurukula.e2eTests.UserAccountTests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.gurukula.dataTests.DataTests</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setEnv(http://127.0.0.1:8080/)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">20 ms</span>
+                <span class="method-start">24 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">TC001_updateUserAccountInfo</span>
-                <span class="method-start">2155 ms</span>
+                <span class="method-name">csvDataRead(mybranch, M01)</span>
+                <span class="method-start">2221 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">closeBrowser([TestResult name=TC001_updateUserAccountInfo status=FAILURE method=UserAccountTests.TC001_updateUser...)</span>
-                <span class="method-start">5004 ms</span>
+                <span class="method-name">closeBrowser([TestResult name=csvDataRead status=SUCCESS method=DataTests.csvDataRead(java.lang.String, java.lang...)</span>
+                <span class="method-start">7328 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">8417 ms</span>
+                <span class="method-start">8188 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">TC002_updateUserAccountInfoNegative</span>
-                <span class="method-start">10537 ms</span>
+                <span class="method-name">csvDataRead(selinselin, M02)</span>
+                <span class="method-start">10160 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">closeBrowser([TestResult name=TC002_updateUserAccountInfoNegative status=SUCCESS method=UserAccountTests.TC002_up...)</span>
-                <span class="method-start">18626 ms</span>
+                <span class="method-name">closeBrowser([TestResult name=csvDataRead status=SUCCESS method=DataTests.csvDataRead(java.lang.String, java.lang...)</span>
+                <span class="method-start">15706 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">18776 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">csvDataRead(jellybean, E91)</span>
+                <span class="method-start">20838 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">closeBrowser([TestResult name=csvDataRead status=SUCCESS method=DataTests.csvDataRead(java.lang.String, java.lang...)</span>
+                <span class="method-start">25811 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">28827 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">csvDataRead(donut, D10)</span>
+                <span class="method-start">30865 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">closeBrowser([TestResult name=csvDataRead status=SUCCESS method=DataTests.csvDataRead(java.lang.String, java.lang...)</span>
+                <span class="method-start">35852 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">38722 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">csvDataRead(marshmallow, M45)</span>
+                <span class="method-start">40757 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">closeBrowser([TestResult name=csvDataRead status=SUCCESS method=DataTests.csvDataRead(java.lang.String, java.lang...)</span>
+                <span class="method-start">45791 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

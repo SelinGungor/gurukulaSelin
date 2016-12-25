@@ -250,5 +250,23 @@ public class HomePage {
 		}
 	
 	
+
+	/**
+	 * Gets the last item
+	 * @param text
+	 * @return
+	 */
+	public String getID(String text)
+	{
+		int iend = text.indexOf(" "); //this finds the first occurrence of "." 
+		
+		String subString = "";
+		if (iend != -1){ 
+		subString = text.substring(0 , iend); //this will give abc
+		}
+		return subString;
+	}
+	
+	
 	
 }

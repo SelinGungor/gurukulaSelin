@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.gurukula.e2eTests.UserAccountTests">
+      <class name="com.gurukula.dataTests.DataTests">
         <methods>
           <include name="setEnv"/>
           <include name="setUp"/>
-          <include name="TC001_updateUserAccountInfo"/>
+          <include name="csvDataRead" invocation-numbers="1"/>
           <include name="closeBrowser"/>
         </methods>
-      </class> <!-- com.gurukula.e2eTests.UserAccountTests -->
+      </class> <!-- com.gurukula.dataTests.DataTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
