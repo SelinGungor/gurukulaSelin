@@ -24,3 +24,9 @@ Test Suites
 5.RegistrationTests
 6.StaffTests
 7.UserAccountTests
+
+
+TEST EXECUTION
+
+To run the entire test
+mvn test
