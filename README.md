@@ -17,16 +17,16 @@ Functions that will be tested as follows:
 
 Test Suites
 
-1.BranchTests
-2.HomePageTests
-3.LoginTests
-4.PaginationTests
-5.RegistrationTests
-6.StaffTests
-7.UserAccountTests
+1.BranchTests</br>
+2.HomePageTests</br>
+3.LoginTests</br>
+4.PaginationTests</br>
+5.RegistrationTests</br>
+6.StaffTests</br>
+7.UserAccountTests</br>
 
 
 TEST EXECUTION
 
-To run the entire test
+To run the entire test</br>
 mvn test
