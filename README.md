@@ -1,10 +1,13 @@
 # gurukulaSelin
 Selenium Test Automation
 
-Resources	Java 1.8
-Dependencies	Environment needs to be ready 
+##### Resources	: Java 1.8</br>
+##### Dependencies :	Environment needs to be ready.</br>
+##### Driver : ChromeDriver is used.</br>
+##### Test Framework : TestNG</br>
+##### TestData : CSV file used to read test data.</br>
 
-The  main focus area of gurukulaSelin project test strategy is to test main features.
+The  main focus area of gurukulaSelin project test strategy is to test main features.</br>
 
 ## Functions that will be tested as follows:
 
