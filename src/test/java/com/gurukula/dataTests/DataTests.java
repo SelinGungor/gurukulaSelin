@@ -49,7 +49,7 @@ public class DataTests extends BaseCase  {
 	    {
 	        List<Object []> testCases = new ArrayList<Object[]>();
 	        String [] csvCell;
-	        //this loop is pseudo code
+	    
 	        CSVReader reader = new CSVReader(new FileReader(CSV_PATH));
 	        while ((csvCell = reader.readNext()) != null) {
 	            testCases.add(csvCell);
